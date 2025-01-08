@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GadYestPx POS System</title>
+    <link rel="icon" href="/Application1/web/assets/hardware_web_logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="/Application1/web/css/index.css">
+
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+<!-- Nav Bar -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/Application1/web/index.html">
+          <img src="/Application1/web/assets/hardware_logo.png" alt="Bootstrap" width="30" height="24">
+        </a>
+        <span class="navbar-text">
+            ALL COMPUTER HARDWARE UNDER ONE ROOF
+          </span>
+      </div>
+
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <!-- customer -->
+            <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#customer">Customer</a>
+          </li>
+
+          <!-- item -->
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#item">Item</a>
+          </li>
+
+          <!-- place order -->
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#placeOrder">Place Order</a>
+          </li>
+
+          <!-- report -->
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/Application1/web/pages/report.html">Report</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<div id="content">
+    
+    <!-- Customer Form -->
+    <section id="customer">
+        <h1>Customer</h1>
+
+        <div id="form-content">
+            <div class="inputs">
+                <form>
+                    <div class="mb-3">
+                        <label for="ID" class="form-label">ID</label>
+                        <input type="text" class="form-control" id="ID">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="Name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Address" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="Address">
+                    </div>
+    
+                    <div class="buttons text-center">
+                        <button type="button" id="btn_load" class="btn btn-secondary ms-3">VIEW</button>
+                        <button type="button" id="btn_add" class="btn btn-success ms-3">ADD</button>
+                        <button type="button" id="btn_update" class="btn btn-primary ms-3">UPDATE</button>
+                        <button type="button" id="btn_delete" class="btn btn-danger ms-3">DELETE</button>
+                        <button type="button" id="btn_clear" class="btn btn-dark ms-3">Clear</button>
+                    </div>
+                </form>
+    
+            </div>
+    
+            <!-- <h2 class="mt-4">Customer List</h2> -->
+    
+            <div class="table">
+                <table class="table table-hover">
+                    <thead>
+                    <tr class="text-center">
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Address</th>
+                    </tr>
+                    </thead>
+                    <tbody id="customer_tbody" class="text-center">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+    </section>
+
+    <!-- Item Form -->
+    <section id="item">
+        <h1>Item Form</h1>
+        <div class="content">
+            <!-- Form -->
+            <form class="row g-3 w-50 mx-auto" id="stockForm">
+                <div class="col-md-6">
+                    <label for="itemCode" class="form-label">Item Code</label>
+                    <input type="text" class="form-control" id="itemCode"/>
+                    <h6
+                            class="invalidCode text-danger fw-400 position-absolute"
+                    ></h6>
+                </div>
+                <div class="col-md-6">
+                    <label for="itemName" class="form-label">Item Name</label>
+                    <input type="text" class="form-control" id="itemName"/>
+                    <h6
+                            class="invalidName text-danger fw-400 position-absolute"
+                    ></h6>
+                </div>
+                <div class="col-12">
+                    <label for="itemPrice" class="form-label">Price</label>
+                    <input
+                            type="currency"
+                            class="form-control"
+                            id="itemPrice"
+                            placeholder="$"
+                    />
+                    <h6
+                            class="invalidPrice text-danger fw-400 position-absolute"
+                    ></h6>
+                </div>
+                <div class="col-12">
+                    <label for="itemQty" class="form-label">Quantity</label>
+                    <input type="number" class="form-control" id="itemQty"/>
+                    <h6
+                            class="invalidQty text-danger fw-400 position-absolute"
+                    ></h6>
+                </div>
+
+                <!---------- Buttons ---------->
+
+                <div class="d-flex justify-content-evenly">
+                    <button
+                            type="submit"
+                            class="btn btn-success"
+                            style="width: 100px"
+                            id="addBtn"
+                    >
+                        Add
+                    </button>
+
+                    <button
+                            type="submit"
+                            class="btn btn-warning"
+                            style="width: 100px"
+                            id="updateBtn"
+                    >
+                        Update
+                    </button>
+
+                    <button
+                            type="submit"
+                            class="btn btn-danger"
+                            style="width: 100px"
+                            id="deleteBtn"
+                    >
+                        Delete
+                    </button>
+
+                    <button
+                            type="button"
+                            class="btn btn-dark"
+                            style="width: 100px"
+                            id="clearBtn"
+                    >
+                        Clear
+                    </button>
+                </div>
+            </form>
+            <!-- Table -->
+            <table
+                    class="table table-striped table-hover mx-auto mt-5 text-center w-75"
+            >
+                <thead>
+                <tr>
+                    <th scope="col">Item Code</th>
+                    <th scope="col">Item Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Quantity</th>
+                </tr>
+                <tbody id="item_tbody"></tbody>
+                </thead>
+            </table>
+        </div>
+    </section>
+
+    <!-- PlaceOrder Form -->
+    <section id="placeOrder"></section>
+    
+</div>
+
+<script src="js/jquery-3.7.1.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous">
+</script>
+
+<script src="js/index.js"></script>
+</body>
+</html>
